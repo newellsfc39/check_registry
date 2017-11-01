@@ -60,7 +60,7 @@ public:
 	Checkbook();
 	// constructor
 	Checkbook(string,string, string, string, string, string);
-	// destructor
+	// destructor  ... commented out because caused error
 //	~Checkbook();
 
 	static int checkNumber; 				// static member variable
@@ -77,8 +77,8 @@ public:
 
 	static int getCheckNumber();
 	static void setCheckNumber(int);
-	//static int Checkbook::getNextCheck();  // original ... get extra qualification error in member Checkbook
-	static int getNextCheck();  // when Checkbook removed .... i get a ton of error messages 
+	
+	static int getNextCheck(); 
 	static bool isMatchingCheckNumber(int, string);
 
 	void setDescription(string desc);

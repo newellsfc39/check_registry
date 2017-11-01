@@ -28,7 +28,7 @@ Checkbook::Checkbook(string selection, string date, string desc, string pay, str
 	setBalance(bal);
 }
 
-// destructor definition
+// destructor definition ... commented out because it was causing an error
 /*
 Checkbook::~Checkbook(){
 

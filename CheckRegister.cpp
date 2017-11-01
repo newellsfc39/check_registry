@@ -16,6 +16,12 @@ Due Date:	08/12/2015
 // The program uses exception throws to handle inaccurate user input in the command selection code
 // as well as in the check number incrementation of checks seeing to it that no duplicate check # is used.
 
+// *** Program uses programmer created namespace 'utilns' located in 'my_ns' files for the following standalone utility functions:
+//int inputNumber();
+//string inputGetlineString();				
+//string inputGetlineString(string);
+//double inputDouble();			
+
 // users enter ints and doubles in local check#, payment and desposits before being converted to strings 
 // for constructor instantiation.  Also, values are converted from strings to doubles and back to strings
 // for purposes of calculation when having selected n, c, w and d.
@@ -40,11 +46,13 @@ Due Date:	08/12/2015
 //	-to be further modularized
 
 #include "Checkbook.h"
+#include "my_ns.h"
 #include <iostream> // for cout/cin
-#include <iomanip> // for setw()
+#include <iomanip> // for setw() and setprecision
 #include <cstdlib> // for exit()
 #include <fstream> // for output and input streams
 using namespace std;
+using namespace utilns;
 
 void showMenu();										
 void showRegister(vector<Checkbook> &);
@@ -53,12 +61,7 @@ void openForOutput(fstream &, string);
 void openForInput(fstream &, string);					
 vector<Checkbook> readFromFile(fstream &, string);
 
-string getValidSelection();					
-int inputNumber();
-string inputGetlineString();				
-string inputGetlineString(string);
-double inputDouble();						
-double inputDouble(double);
+string getValidSelection();								
 double processBalance(string, double, Checkbook &);
 
 int main(){
@@ -298,7 +301,10 @@ int main(){
 	return 0;
 }
 
+
+
 void showMenu(){
+	
 	cout << "\'O\' ...specificy the name of the Output file." << endl;
 	cout << "\'I\' ...specificy the name of the Input file." << endl;
 	cout << "\'S\' ...set the initial balance." << endl;
@@ -349,7 +355,6 @@ void printToFile(fstream & outToFile, vector<Checkbook> & transaction){
 			<< transaction[i].getPayment() << "|"
 			<< transaction[i].getDeposit() << "|"
 			<< transaction[i].getBalance() << endl;
-
 	}
 	outToFile.close();
 }
@@ -447,7 +452,7 @@ string getValidSelection(){
 		throw invalidSelectionException;
 	} // end of else
 } // end of getValidSelection
-
+/* 
 int inputNumber(){
 	int num;
 	while (!(cin >> num)){
@@ -470,9 +475,9 @@ double inputDouble(){
 	}
 	cin.ignore(80, '\n');
 	return num;
-}
+} */
 
-string inputGetlineString(){
+/* string inputGetlineString(){
 	string str;
 	getline(cin, str);
 	return str;
@@ -482,3 +487,4 @@ string inputGetlineString(){
 string inputGetlineString(string str){
 	return str;
 }
+ */
